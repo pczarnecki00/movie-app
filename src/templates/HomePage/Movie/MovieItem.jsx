@@ -8,7 +8,7 @@ export const MovieItem = ({ img, title, year, genre, actors, director }) => {
     return (
         <li className='movie-item'>
             <div className="movie-item__wrapper">
-                <img className='movie-item__img' src={img}></img>
+                <img alt ={title}className='movie-item__img' src={img}></img>
                 <h2 className='movie-item__title'>{title}</h2>
                 <span className="movie-item__year">{year}</span>
                 <InfoPanel>

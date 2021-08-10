@@ -6,12 +6,12 @@ import { HomePage } from 'templates/HomePage/HomePage';
 import { MoviesList } from 'templates/HomePage/MoviesList/MoviesList';
 import { MovieItem } from 'templates/HomePage/Movie/MovieItem';
 import { movies } from './moviedata';
+
 import './App.css';
 
 
 
 function App() {
-  console.log(movies);
   return (
     <div className="App">
       <HomePage>
