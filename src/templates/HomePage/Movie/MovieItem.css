@@ -1,0 +1,49 @@
+
+.movie-item { 
+    width: 33.333%;
+    padding: 10px;
+}
+.movie-item__wrapper{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.198);
+    border-radius: 10px;
+    transition: box-shadow .2s ease-in-out;
+    justify-content: space-between;    
+}
+.movie-item__img {
+    width: 100%;
+}
+
+.movie-item__title {
+    margin: 10px 0 0 0;
+}
+
+.movie-item__title::first-letter {
+    text-transform:  capitalize;
+}
+
+.movie-item__year {
+    color: grey;
+    font-size: 14px;
+}
+
+.movie-item__info {
+    display: flex;
+    flex-direction: column;
+    padding:20px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+.movie-item__actors {
+    margin-top: 10px;
+}
+
+.movie-item__wrapper:hover{
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.5);
+}
+

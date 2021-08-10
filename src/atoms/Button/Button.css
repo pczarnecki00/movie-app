@@ -1,0 +1,42 @@
+.btn {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(128, 128, 128);
+    font-size: 16px;
+    font-weight: 600 ;
+    color: #fff;
+    transition: background-color .2s ease-in-out, color .4s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(105, 104, 104);
+}
+.btn--search {
+    flex-basis: 10%;
+    border: none;
+    cursor: pointer;
+    background-color: #c3c3c3;
+    color: #706e6e;
+    font-size: 18px;
+    display: inline-block;
+    padding: 8px 13px;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out;
+    
+}
+.btn--search:hover {
+    background-color:#a3a2a2 ;
+    color: #4d4c4c;
+}
+
+.btn--fav { 
+    font-size: 25px;
+    padding: 5px 0;
+    
+}
+
+.btn--fav:hover {
+    color: #000;
+}
