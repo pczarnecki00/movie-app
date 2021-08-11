@@ -1,12 +1,13 @@
 import { 
     MOVIES_FETCHING, 
     MOVIES_SUCCESS, 
-    MOVIES_FAILURE 
+    MOVIES_FAILURE, 
+    MOVIES_SEARCH
 } from "./movies.constants";
-import { movies } from './moviedata';
 
 
-export const fetchMoviesRequest = () => {
+
+export const fetchMoviesRequest = (val) => {
     return {
         type: MOVIES_FETCHING,
     }
@@ -15,11 +16,18 @@ export const fetchMoviesRequest = () => {
 export const fetchMoviesSuccess = (movies) => {
     return {
         type: MOVIES_SUCCESS,
-        payload: [movies],
+        payload: movies,
     }
 }
 export const fetchMoviesFailure = () =>{
     return {
         type: MOVIES_FAILURE,
+    }
+}
+
+export const searchInput = (value) => {
+    return {
+        type: MOVIES_SEARCH,
+        payload: value
     }
 }

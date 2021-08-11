@@ -1,8 +1,8 @@
 import './Container.css';
 
-export const Container = ({children, style}) => {
+export const Container = ({children, type}) => {
 
     return (
-        <div className={`container ${style ? style : '' }`}>{children}</div>
+        <div className={`container ${type ? type : '' }`}>{children}</div>
     )
 }

@@ -1,10 +1,7 @@
 import './Input.css';
 
-export const Input = ({className}) => {
-    const handleChange = (e) =>{
-        console.log();
-    }
+export const Input = ({className, onChange}) => {
     return (
-        <input onChange={(e)=> {handleChange(e.target.value)}} atype="text" className={className}></input>
+        <input onChange={onChange} atype="text" className={className}></input>
     )
 }
