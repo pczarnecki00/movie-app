@@ -1,35 +1,23 @@
-import { 
-    MOVIES_FETCHING, 
-    MOVIES_SUCCESS, 
-    MOVIES_FAILURE,
-    MOVIES_SEARCH
-} from "./movies.constants";
+import { FETCH_MOVIES } from "./movies.constants";
+
+import { FETCH_STATUSES } from "constants/index";
+import { createReducer } from 'utils';
 
 const initialState = {
-    isFetching: false,
-    isError: false,
-    movies: null
-}
+    status: FETCH_STATUSES.IDLE,
+    list: [],
+};
 
-export const movies = (state = initialState, {type, payload}) => {
-    switch(type) {
-        case MOVIES_FETCHING:
-            return { ...state, isFetching: true, isError: false, movies: null };
-        case MOVIES_SUCCESS:
-            return { ...state, isFetching: false, isError: false, movies: payload };
-        case MOVIES_FAILURE:
-            return { ...state, isFetching: false, isError: true, movies: null }
-        default: 
-            return state;
-    }
-}
+const handlers = {
+    [FETCH_MOVIES.REQUEST]: (state) => ({
+        ...state,
+        status: FETCH_STATUSES.REQUEST,
+    }),
+    [FETCH_MOVIES.SUCCESS]: (state, action) => ({
+        ...state,
+        list: action.payload.movies,
+        status: FETCH_MOVIES.SUCCESS,
+    }),
+};
 
-const searchState= {searchVal: ''}
-export const search = (state = searchState ,{ type, payload }) => {
-    switch(type) {
-        case MOVIES_SEARCH:
-            return {...state, searchVal: payload }
-        default:
-            return state;
-    }
-}
+export default createReducer(initialState, handlers);

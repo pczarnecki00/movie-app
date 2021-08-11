@@ -1,11 +1,9 @@
 import './MovieItem.css';
 import { Button } from 'atoms/Button/Button';
-import { ButtonPanel } from 'templates/HomePage/Movie/ButtonPanel/ButtonPanel';
+import { ButtonPanel } from 'templates/HomePage/MovieItem/ButtonPanel/ButtonPanel';
 import { InfoPanel } from './InfoPanel/InfoPanel';
 
-export const MovieItem = ({ img, title, year, genre, actors, director }) => {
-
-    return (
+export const MovieItem = ({ img, title, year, genre, actors, director }) => (
         <li className='movie-item'>
             <div className="movie-item__wrapper">
                 <img alt ={title}className='movie-item__img' src={img}></img>
@@ -22,5 +20,4 @@ export const MovieItem = ({ img, title, year, genre, actors, director }) => {
                 </ButtonPanel>
             </div>
         </li>
-    )
-}
+)

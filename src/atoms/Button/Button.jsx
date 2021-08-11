@@ -1,8 +1,8 @@
 import './Button.css';
 
-export const Button = ({children, type}) => {
+export const Button = ({ children, color, ...props}) => {
 
     return (
-        <button className={`btn ${type}`}>{children}</button>
+        <button className={`btn btn--{color}`} {...props}>{children}</button>
     )
 }
