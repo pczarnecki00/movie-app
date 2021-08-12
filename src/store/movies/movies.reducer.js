@@ -1,35 +1,39 @@
-import { 
-    MOVIES_FETCHING, 
-    MOVIES_SUCCESS, 
-    MOVIES_FAILURE,
-    MOVIES_SEARCH
-} from "./movies.constants";
+import { FETCH_MOVIES, FAV_MOVIES } from "./movies.constants";
+import { createReducer } from 'utils/createReducer';
 
 const initialState = {
-    isFetching: false,
-    isError: false,
-    movies: null
-}
+    status: FETCH_MOVIES.IDLE,
+    list: [],
+};
 
-export const movies = (state = initialState, {type, payload}) => {
-    switch(type) {
-        case MOVIES_FETCHING:
-            return { ...state, isFetching: true, isError: false, movies: null };
-        case MOVIES_SUCCESS:
-            return { ...state, isFetching: false, isError: false, movies: payload };
-        case MOVIES_FAILURE:
-            return { ...state, isFetching: false, isError: true, movies: null }
-        default: 
-            return state;
-    }
-}
+const handlers = {
+    [FETCH_MOVIES.REQUEST]: (state) => ({
+        ...state,
+        status: FETCH_MOVIES.REQUEST,
+    }),
+    [FETCH_MOVIES.SUCCESS]: (state, action) => ({
+        ...state,
+        list: action.payload.movies,
+        status: FETCH_MOVIES.SUCCESS,
+    }),
+    [FETCH_MOVIES.FAILURE]: (state, action) => ({
+        ...state,
+        error: action.payload,
+        status: FETCH_MOVIES.FAILURE,
+    }),
+};
 
-const searchState= {searchVal: ''}
-export const search = (state = searchState ,{ type, payload }) => {
+const localState =  {
+    fav: JSON.parse(localStorage.getItem('favMovies')) ? JSON.parse(localStorage.getItem('favMovies')) : []
+};
+export const favReducer = (state = localState, {type, payload}) =>  {
     switch(type) {
-        case MOVIES_SEARCH:
-            return {...state, searchVal: payload }
+        case FAV_MOVIES.FAV:
+            return {...state, fav: payload}
         default:
             return state;
     }
+    
 }
+export default createReducer(initialState, handlers);
+

@@ -5,3 +5,8 @@
     list-style: none;
     margin: 0;
 }
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

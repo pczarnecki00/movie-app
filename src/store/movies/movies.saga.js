@@ -1,20 +1,28 @@
 import { put, call, takeEvery } from "redux-saga/effects";
-import { MOVIES_FAILURE, MOVIES_FETCHING, MOVIES_SUCCESS } from 'store/movies/movies.constants';
+import { FETCH_MOVIES } from 'store/movies/movies.constants';
+import { fetchMoviesFailure, fetchMoviesSuccess } from './movies.actions';
 
 
 
 
 
 
-function fetchApi() {
-    return fetch(`https://www.omdbapi.com/?apikey=1a230d46&s=bat`).then(response => response.json());
+function fetchApi(val) {
+    return fetch(`https://www.omdbapi.com/?apikey=1a230d46&s=${val}`).then(response => response.json());
 }
 
-function* fetchMovies() {
-   const movie = yield call(fetchApi);
-     movie ? yield put({ type: MOVIES_SUCCESS, payload: movie}) : yield put({ type: MOVIES_FAILURE})
+function* fetchMovies({ payload }) {
+    try {
+        const movies = yield call(fetchApi, payload.searchValue);
+
+        yield put(fetchMoviesSuccess(movies.Search));
+    } catch (error) {
+        yield put(fetchMoviesFailure(error.message))
+    }
 } 
 
-export function* mySaga(){
-    yield takeEvery(MOVIES_FETCHING, fetchMovies)
-    }
+function* mySaga(){
+    yield takeEvery(FETCH_MOVIES.REQUEST, fetchMovies)
+}
+
+export default mySaga;
