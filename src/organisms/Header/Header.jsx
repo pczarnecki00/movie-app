@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMoviesRequest } from 'store/movies/movies.actions';
@@ -25,9 +26,10 @@ export const Header = (props) => {
     const onSubmit = useCallback((e) => {
         e.preventDefault();
 
+
         dispatch(fetchMoviesRequest(searchValue));
     }, [searchValue, dispatch]);
-   return (
+    return (
 
         <header className="header">
             <Container type='flex-space'>
@@ -37,3 +39,5 @@ export const Header = (props) => {
         </header>
     )
 }
+
+

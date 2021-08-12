@@ -1,3 +1,4 @@
+
 import { FETCH_MOVIES, FAV_MOVIES } from "./movies.constants";
 import { createReducer } from 'utils/createReducer';
 
@@ -10,6 +11,7 @@ const handlers = {
     [FETCH_MOVIES.REQUEST]: (state) => ({
         ...state,
         status: FETCH_MOVIES.REQUEST,
+
     }),
     [FETCH_MOVIES.SUCCESS]: (state, action) => ({
         ...state,
@@ -23,17 +25,18 @@ const handlers = {
     }),
 };
 
-const localState =  {
+const localState = {
     fav: JSON.parse(localStorage.getItem('favMovies')) ? JSON.parse(localStorage.getItem('favMovies')) : []
 };
-export const favReducer = (state = localState, {type, payload}) =>  {
-    switch(type) {
+export const favReducer = (state = localState, { type, payload }) => {
+    switch (type) {
         case FAV_MOVIES.FAV:
-            return {...state, fav: payload}
+            return { ...state, fav: payload }
         default:
             return state;
     }
-    
+
 }
 export default createReducer(initialState, handlers);
+
 

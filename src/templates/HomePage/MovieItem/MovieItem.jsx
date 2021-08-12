@@ -1,22 +1,21 @@
+import './MovieItem.css';
 import { Button } from 'atoms/Button/Button';
 import { ButtonPanel } from 'templates/HomePage/MovieItem/ButtonPanel/ButtonPanel';
 import { InfoPanel } from './InfoPanel/InfoPanel';
 
-import noImage from 'assets/noimage.jpg'
-import './MovieItem.css';
-
-export const MovieItem = ({ Poster, Title, Year, Type, buttonClick, favStyle}) => (
+export const MovieItem = ({ img, title, year, genre, actors, director }) => (
         <li className='movie-item'>
             <div className="movie-item__wrapper">
-                { Poster !== "N/A" ? <img alt ={Title} className='movie-item__img' src={Poster}/> : <img src={noImage} alt="no poster"></img>}
-    
-                <h2 className='movie-item__title'>{Title}</h2>
-                <span className="movie-item__year">{Year}</span>
+                <img alt ={title}className='movie-item__img' src={img}></img>
+                <h2 className='movie-item__title'>{title}</h2>
+                <span className="movie-item__year">{year}</span>
                 <InfoPanel>
-                    <span className="movie-item__genre">{Type}</span>
+                    <span className="movie-item__genre">Genre: {genre.reduce((acc, val) => { return acc +  val + ', ' }, '')}</span>
+                    <span className="movie-item__director">Director: {director.reduce((acc, val) => { return acc + val }, '')}</span>
+                    <span className="movie-item__actors">Actor: {actors.reduce((acc, val) => { return acc + val + ', ' }, '')}</span>
                 </InfoPanel>
                 <ButtonPanel>
-                    <Button onClick={buttonClick} color={favStyle}>★</Button>
+                    <Button type='btn--fav'>★</Button>
                     <Button>Button</Button>
                 </ButtonPanel>
             </div>

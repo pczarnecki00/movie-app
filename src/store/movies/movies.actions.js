@@ -1,4 +1,6 @@
+
 import { FAV_MOVIES, FETCH_MOVIES } from "./movies.constants";
+
 
 export const fetchMoviesRequest = (searchValue) => ({
     type: FETCH_MOVIES.REQUEST,
@@ -21,5 +23,6 @@ export const fetchMoviesFailure = (error) => ({
 
 export const addFavMovies = (favMov) => ({
     type: FAV_MOVIES.FAV,
-    payload : favMov
+    payload: favMov
+
 })

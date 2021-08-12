@@ -35,6 +35,5 @@ export const MoviesList = ({ movies = [], status = FETCH_MOVIES.IDLE }) => {
                 </ul>
             )}
             {status === FETCH_MOVIES.FAILURE && <div>{error }</div>}
-        </>
-    )
-}
+</>
+    )}

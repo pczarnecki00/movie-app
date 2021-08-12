@@ -4,6 +4,7 @@ export const FETCH_MOVIES = {
     SUCCESS: "FETCH_MOVIES_SUCCESS",
     FAILURE: "FETCH_MOVIES_FAILURE",
 };
+
 export const FAV_MOVIES = {
     FAV: "FAV_MOVIES"
 }

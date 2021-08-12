@@ -6,8 +6,9 @@ import { MoviesList } from 'templates/HomePage/MoviesList/MoviesList';
 
 
 export const HomePage = () => {
-    const movies = useSelector(state=> state.movies.list);
-    const status = useSelector(state=> state.movies.status);
+    const movies = useSelector(state => state.movies.list);
+    const status = useSelector(state => state.movies.status);
+
 
     return (
         <div className="home-page">
